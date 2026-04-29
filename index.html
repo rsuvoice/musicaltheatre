@@ -13,12 +13,13 @@
 
     <style>
         :root {
-            /* ปรับสีใหม่ตรงนี้ครับ */
-            --primary-color: #4a6583; /* Slate Blue: น้ำเงินอมเทาสไตล์วินเทจ ดูคลาสสิกแต่ไม่เครียด */
-            --primary-dark: #3b536d;  /* สำหรับตอนเอาเมาส์ชี้ปุ่ม */
-            --accent-color: #d4af37;  /* Soft Gold: สีทองที่สว่างและละมุนขึ้น */
-            --bg-color: #fcfbf8;      /* Warm Off-white: ครีมอุ่นๆ สว่างขึ้นให้ดูมีความหวัง */
-            --text-color: #444444;    /* Dark Gray: ใช้เทาเข้มแทนสีดำสนิท เพื่อให้อ่านสบายตา */
+            /* โทนสีใหม่ ดึงจากบรรยากาศโปสเตอร์วินเทจ/พีเรียด */
+            --primary-color: #4A3A31; /* Vintage Brown: สีน้ำตาลเข้มคลาสสิก ดูจริงจังแต่อบอุ่น */
+            --primary-dark: #2F241E;  /* Dark Brown: สีน้ำตาลไหม้ สำหรับโฮเวอร์ปุ่ม */
+            --accent-color: #B85D38;  /* Rust/Burnt Orange: สีส้มอิฐ/ทองแดง สื่อถึงความหวังและแสงสว่าง */
+            --bg-color: #F7F4EB;      /* Warm Parchment: สีครีมกระดาษเก่า สว่างแต่อ่านสบายตา */
+            --bg-section: #EFEAD8;    /* Darker Cream: สีครีมเข้มขึ้นเล็กน้อยสำหรับแบ่งโซน */
+            --text-color: #403631;    /* Soft Dark Brown: สีตัวอักษร ลดความแข็งของสีดำสนิท */
         }
 
         * {
@@ -69,8 +70,8 @@
 
         .hero-image img {
             max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(74, 58, 49, 0.2); /* เงาอมน้ำตาล */
         }
 
         .hero-text {
@@ -79,9 +80,9 @@
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--primary-color);
-            line-height: 1.2;
+            line-height: 1.1;
             margin-bottom: 20px;
         }
 
@@ -90,12 +91,13 @@
             color: var(--accent-color);
             margin-bottom: 20px;
             font-weight: 500;
+            letter-spacing: 1px;
         }
 
         .cta-button {
             display: inline-block;
             background-color: var(--primary-color);
-            color: white;
+            color: #F7F4EB;
             padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
@@ -104,23 +106,25 @@
             transition: all 0.3s ease;
             margin-top: 20px;
             border: 2px solid var(--primary-color);
+            box-shadow: 0 8px 15px rgba(74, 58, 49, 0.15);
         }
 
         .cta-button:hover {
             background-color: var(--primary-dark);
             border-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(74, 101, 131, 0.2);
+            box-shadow: 0 12px 20px rgba(74, 58, 49, 0.25);
         }
 
         .cta-outline {
             background-color: transparent;
             color: var(--primary-color);
+            box-shadow: none;
         }
 
         .cta-outline:hover {
             background-color: var(--primary-color);
-            color: white;
+            color: #F7F4EB;
         }
 
         /* --- Details Section --- */
@@ -144,9 +148,9 @@
         .card {
             background: white;
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border-bottom: 4px solid var(--accent-color);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border-bottom: 5px solid var(--accent-color);
             transition: transform 0.3s ease;
         }
         
@@ -173,7 +177,7 @@
         }
 
         .card ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
         }
@@ -182,7 +186,8 @@
             content: "•";
             color: var(--accent-color);
             font-weight: bold;
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 1.2rem;
         }
 
         /* --- Timeline Table --- */
@@ -191,28 +196,29 @@
             border-collapse: collapse;
             margin-top: 30px;
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         .schedule-table th, .schedule-table td {
             padding: 20px;
             text-align: left;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--bg-section);
         }
 
         .schedule-table th {
             background-color: var(--primary-color);
-            color: white;
+            color: #F7F4EB;
             font-weight: 500;
             font-size: 1.2rem;
+            letter-spacing: 0.5px;
         }
 
         /* --- Footer --- */
         footer {
-            background: var(--primary-color);
-            color: white;
+            background: var(--primary-dark);
+            color: #EFEAD8;
             text-align: center;
             padding: 60px 5%;
         }
@@ -220,14 +226,15 @@
         footer img {
             height: 80px;
             margin-bottom: 20px;
-            filter: brightness(0) invert(1); /* ทำให้โลโก้เป็นสีขาวเพื่อให้เข้ากับพื้นหลังสีน้ำเงิน */
+            filter: brightness(0) invert(1) opacity(0.9);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text h1 { font-size: 2.8rem; }
             .hero { text-align: center; }
             .cta-button { width: 100%; box-sizing: border-box; }
+            .card ul li { text-align: left; }
         }
     </style>
 </head>
@@ -247,31 +254,31 @@
             <img src="https://drive.google.com/thumbnail?id=1rkra0V4-UBNLS_VM8fXOwHdT3nw5Sd-m&sz=w1000" alt="เมืองนิมิตร Poster">
         </div>
         <div class="hero-text">
-            <h2>RSU Musical Theatre</h2>
+            <h2>RSU Musical Theatre presents</h2>
             <h1>เมืองนิมิตร<br>The Musical</h1>
             <p style="font-size: 1.2rem; margin-bottom: 30px; font-weight: 300;">"เมื่อสงครามพรากทุกสิ่ง ความรักและความหวังจะรวมเราไว้เป็นหนึ่ง"</p>
-            <p>เปิดรับสมัคร Audition นักแสดงและนักร้อง</p>
-            <a href="LINK_TO_YOUR_FORM" class="cta-button">สมัคร Audition</a>
+            <p>เปิดรับสมัคร Audition นักแสดงและนักร้องเพื่อร่วมสร้างประวัติศาสตร์หน้าใหม่บนเวทีละครเพลงระดับอาชีพ</p>
+            <a href="LINK_TO_YOUR_FORM" class="cta-button">เข้าสู่แบบฟอร์มสมัครออนไลน์</a>
         </div>
     </section>
 
-    <section class="section" style="background-color: #f4f6f8;">
+    <section class="section" style="background-color: var(--bg-section);">
         <h2 class="section-title">รายละเอียดการ Audition</h2>
         <div class="grid-container">
             <div class="card">
                 <i class="fa-solid fa-microphone-lines"></i>
-                <h3>รอบที่ 1: Audition</h3>
+                <h3>รอบที่ 1: คัดเลือกบุคคล</h3>
                 <ul>
                     <li><strong>วันที่:</strong> 2 มิถุนายน</li>
                     <li><strong>เวลา:</strong> 13:00 – 21:00 น.</li>
                     <li><strong>ระยะเวลา:</strong> คนละ 15 นาที</li>
-                    <li>ผู้เข้าสมัครลงทะเบียนก่อนเวลาอย่างน้อย 30 นาที</li>
+                    <li>ผู้เข้าสมัครต้องมารายงานตัวก่อนเวลาอย่างน้อย 30 นาที</li>
                 </ul>
             </div>
 
             <div class="card">
                 <i class="fa-solid fa-users-viewfinder"></i>
-                <h3>รอบที่ 2: Workshop Audition</h3>
+                <h3>รอบที่ 2: Workshop</h3>
                 <ul>
                     <li><strong>วันที่:</strong> 3 มิถุนายน</li>
                     <li><strong>เวลา:</strong> 13:00 – 17:00 น.</li>
@@ -294,7 +301,7 @@
     </section>
 
     <section class="section" id="register" style="text-align: center;">
-        <h2 class="section-title">กำหนดการ</h2>
+        <h2 class="section-title">กำหนดการโดยสรุป</h2>
         <div style="max-width: 800px; margin: 0 auto; overflow-x: auto;">
             <table class="schedule-table">
                 <thead>
@@ -313,14 +320,14 @@
                         <td>3 มิ.ย. (13:00 - 17:00 น.)</td>
                     </tr>
                     <tr>
-                        <td style="color: var(--primary-color); font-weight: 500;">ประกาศผลผู้ผ่านการคัดเลือก</td>
-                        <td style="color: var(--primary-color); font-weight: 500;">4 มิถุนายน</td>
+                        <td style="color: var(--accent-color); font-weight: 500;">ประกาศผลผู้ผ่านการคัดเลือก</td>
+                        <td style="color: var(--accent-color); font-weight: 500;">4 มิถุนายน</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div style="margin-top: 60px;">
-            <p style="margin-bottom: 20px; font-size: 1.2rem;">"เมืองนิมิตร"</p>
+            <p style="margin-bottom: 20px; font-size: 1.2rem; color: var(--primary-color);">พร้อมจะก้าวเข้าสู่ "เมืองนิมิตร" แล้วหรือยัง?</p>
             <a href="LINK_TO_YOUR_FORM" class="cta-button" style="background-color: var(--accent-color); border-color: var(--accent-color); color: white;">ลงทะเบียนสมัคร Audition</a>
         </div>
     </section>
@@ -328,7 +335,7 @@
     <footer>
         <img src="https://drive.google.com/thumbnail?id=12tFTwTEOJbmpNTQUub2ongpgCqry9Bpx&sz=w1000" alt="RSU Logo">
         <p>© 2026 RSU Musical Theatre. All Rights Reserved.</p>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px; font-weight: 300;">วิทยาลัยดนตรี มหาวิทยาลัยรังสิต</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px; font-weight: 300;">วิทยาลัยการดนตรี มหาวิทยาลัยรังสิต</p>
     </footer>
 
 </body>
