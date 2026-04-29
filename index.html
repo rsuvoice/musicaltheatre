@@ -13,10 +13,12 @@
 
     <style>
         :root {
-            --primary-color: #1a2a44; /* Navy Blue */
-            --accent-color: #c5a059;  /* Gold */
-            --bg-color: #faf9f6;      /* Off-white/Cream */
-            --text-color: #333;
+            /* ปรับสีใหม่ตรงนี้ครับ */
+            --primary-color: #4a6583; /* Slate Blue: น้ำเงินอมเทาสไตล์วินเทจ ดูคลาสสิกแต่ไม่เครียด */
+            --primary-dark: #3b536d;  /* สำหรับตอนเอาเมาส์ชี้ปุ่ม */
+            --accent-color: #d4af37;  /* Soft Gold: สีทองที่สว่างและละมุนขึ้น */
+            --bg-color: #fcfbf8;      /* Warm Off-white: ครีมอุ่นๆ สว่างขึ้นให้ดูมีความหวัง */
+            --text-color: #444444;    /* Dark Gray: ใช้เทาเข้มแทนสีดำสนิท เพื่อให้อ่านสบายตา */
         }
 
         * {
@@ -68,7 +70,7 @@
         .hero-image img {
             max-width: 100%;
             border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .hero-text {
@@ -87,7 +89,7 @@
             font-size: 1.5rem;
             color: var(--accent-color);
             margin-bottom: 20px;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .cta-button {
@@ -105,9 +107,20 @@
         }
 
         .cta-button:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 101, 131, 0.2);
+        }
+
+        .cta-outline {
             background-color: transparent;
             color: var(--primary-color);
-            transform: translateY(-3px);
+        }
+
+        .cta-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
         }
 
         /* --- Details Section --- */
@@ -132,8 +145,13 @@
             background: white;
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             border-bottom: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
         }
 
         .card i {
@@ -151,6 +169,7 @@
         .card ul {
             list-style: none;
             font-size: 1.1rem;
+            color: var(--text-color);
         }
 
         .card ul li {
@@ -174,17 +193,20 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
         }
 
         .schedule-table th, .schedule-table td {
             padding: 20px;
             text-align: left;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .schedule-table th {
             background-color: var(--primary-color);
             color: white;
+            font-weight: 500;
+            font-size: 1.2rem;
         }
 
         /* --- Footer --- */
@@ -198,12 +220,14 @@
         footer img {
             height: 80px;
             margin-bottom: 20px;
+            filter: brightness(0) invert(1); /* ทำให้โลโก้เป็นสีขาวเพื่อให้เข้ากับพื้นหลังสีน้ำเงิน */
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero-text h1 { font-size: 2.5rem; }
             .hero { text-align: center; }
+            .cta-button { width: 100%; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -214,7 +238,7 @@
             <img src="https://drive.google.com/thumbnail?id=12tFTwTEOJbmpNTQUub2ongpgCqry9Bpx&sz=w1000" alt="RSU Logo">
         </div>
         <div>
-            <a href="#register" class="cta-button" style="padding: 10px 25px; font-size: 1rem; margin: 0;">สมัครเลย</a>
+            <a href="#register" class="cta-button cta-outline" style="padding: 8px 25px; font-size: 1rem; margin: 0;">กำหนดการ</a>
         </div>
     </nav>
 
@@ -223,54 +247,54 @@
             <img src="https://drive.google.com/thumbnail?id=1rkra0V4-UBNLS_VM8fXOwHdT3nw5Sd-m&sz=w1000" alt="เมืองนิมิตร Poster">
         </div>
         <div class="hero-text">
-            <h2>RSU Musical Theatre presents</h2>
+            <h2>RSU Musical Theatre</h2>
             <h1>เมืองนิมิตร<br>The Musical</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">"เมื่อสงครามพรากทุกสิ่ง ความรักและความหวังจะรวมเราไว้เป็นหนึ่ง"</p>
-            <p>เปิดรับสมัคร Audition นักแสดงและนักร้องเพื่อร่วมสร้างประวัติศาสตร์หน้าใหม่บนเวทีละครเพลง</p>
-            <a href="LINK_TO_YOUR_FORM" class="cta-button">เข้าสู่แบบฟอร์มสมัคร</a>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; font-weight: 300;">"เมื่อสงครามพรากทุกสิ่ง ความรักและความหวังจะรวมเราไว้เป็นหนึ่ง"</p>
+            <p>เปิดรับสมัคร Audition นักแสดงและนักร้อง</p>
+            <a href="LINK_TO_YOUR_FORM" class="cta-button">สมัคร Audition</a>
         </div>
     </section>
 
-    <section class="section" style="background-color: #f0f2f5;">
+    <section class="section" style="background-color: #f4f6f8;">
         <h2 class="section-title">รายละเอียดการ Audition</h2>
         <div class="grid-container">
             <div class="card">
                 <i class="fa-solid fa-microphone-lines"></i>
-                <h3>รอบที่ 1: คัดเลือกบุคคล</h3>
+                <h3>รอบที่ 1: Audition</h3>
                 <ul>
                     <li><strong>วันที่:</strong> 2 มิถุนายน</li>
                     <li><strong>เวลา:</strong> 13:00 – 21:00 น.</li>
                     <li><strong>ระยะเวลา:</strong> คนละ 15 นาที</li>
-                    <li>ต้องมารายงานตัวก่อนเวลา 30 นาที</li>
+                    <li>ผู้เข้าสมัครลงทะเบียนก่อนเวลาอย่างน้อย 30 นาที</li>
                 </ul>
             </div>
 
             <div class="card">
-                <i class="fa-solid fa-users-gear"></i>
-                <h3>รอบที่ 2: Workshop</h3>
+                <i class="fa-solid fa-users-viewfinder"></i>
+                <h3>รอบที่ 2: Workshop Audition</h3>
                 <ul>
                     <li><strong>วันที่:</strong> 3 มิถุนายน</li>
                     <li><strong>เวลา:</strong> 13:00 – 17:00 น.</li>
                     <li>สำหรับผู้ที่ผ่านเข้ารอบที่ 1 เท่านั้น</li>
-                    <li><strong>ประกาศผลสุดท้าย:</strong> 4 มิถุนายน</li>
+                    <li><strong>ประกาศผล:</strong> 4 มิถุนายน</li>
                 </ul>
             </div>
 
             <div class="card">
-                <i class="fa-solid fa-briefcase"></i>
+                <i class="fa-solid fa-clipboard-list"></i>
                 <h3>สิ่งที่ต้องเตรียมมา</h3>
                 <ul>
-                    <li>เพลงที่ถนัดที่สุด (เน้นสื่อสารอารมณ์)</li>
-                    <li>Backing Track หรือนักดนตรีมาเอง</li>
-                    <li>บท Dialog (ทีมงานจะส่งให้ล่วงหน้า)</li>
-                    <li>อาจมีการเรียก standby ต่อหลังออดิชั่น</li>
+                    <li>เพลงที่ถนัดที่สุด (เน้น Feel in มากที่สุด)</li>
+                    <li>เตรียมนักดนตรี หรือ Backing track มาเอง</li>
+                    <li>บท Dialog สั้น ๆ (ทีมงานจะส่งให้ล่วงหน้า)</li>
+                    <li>อาจมีการเรียกให้อยู่ต่อ (Standby) หลังออดิชั่น</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section class="section" id="register" style="text-align: center;">
-        <h2 class="section-title">กำหนดการโดยสรุป</h2>
+        <h2 class="section-title">กำหนดการ</h2>
         <div style="max-width: 800px; margin: 0 auto; overflow-x: auto;">
             <table class="schedule-table">
                 <thead>
@@ -281,30 +305,30 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Audition รอบที่ 1</td>
-                        <td>2 มิ.ย. (13:00-21:00)</td>
+                        <td><strong>Audition รอบที่ 1</strong></td>
+                        <td>2 มิ.ย. (13:00 - 21:00 น.)</td>
                     </tr>
                     <tr>
-                        <td>Workshop Audition</td>
-                        <td>3 มิ.ย. (13:00-17:00)</td>
+                        <td><strong>Workshop Audition</strong> (เฉพาะผู้ผ่านเข้ารอบ)</td>
+                        <td>3 มิ.ย. (13:00 - 17:00 น.)</td>
                     </tr>
                     <tr>
-                        <td>ประกาศผลผู้ผ่านการคัดเลือก</td>
-                        <td>4 มิถุนายน</td>
+                        <td style="color: var(--primary-color); font-weight: 500;">ประกาศผลผู้ผ่านการคัดเลือก</td>
+                        <td style="color: var(--primary-color); font-weight: 500;">4 มิถุนายน</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div style="margin-top: 50px;">
-            <p style="margin-bottom: 20px;">"เมืองนิมิตร"</p>
-            <a href="LINK_TO_YOUR_FORM" class="cta-button" style="background-color: var(--accent-color); border-color: var(--accent-color);">ลงทะเบียนสมัครตอนนี้</a>
+        <div style="margin-top: 60px;">
+            <p style="margin-bottom: 20px; font-size: 1.2rem;">"เมืองนิมิตร"</p>
+            <a href="LINK_TO_YOUR_FORM" class="cta-button" style="background-color: var(--accent-color); border-color: var(--accent-color); color: white;">ลงทะเบียนสมัคร Audition</a>
         </div>
     </section>
 
     <footer>
         <img src="https://drive.google.com/thumbnail?id=12tFTwTEOJbmpNTQUub2ongpgCqry9Bpx&sz=w1000" alt="RSU Logo">
         <p>© 2026 RSU Musical Theatre. All Rights Reserved.</p>
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">วิทยาลัยดนตรี มหาวิทยาลัยรังสิต</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px; font-weight: 300;">วิทยาลัยดนตรี มหาวิทยาลัยรังสิต</p>
     </footer>
 
 </body>
