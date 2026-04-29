@@ -13,11 +13,11 @@
 
     <style>
         :root {
-            /* โทนสีใหม่ ดึงจากบรรยากาศโปสเตอร์วินเทจ/พีเรียด */
-            --primary-color: #4A3A31; /* Vintage Brown: สีน้ำตาลเข้มคลาสสิก ดูจริงจังแต่อบอุ่น */
+            /* โทนสี ดึงจากบรรยากาศโปสเตอร์วินเทจ/พีเรียด */
+            --primary-color: #4A3A31; /* Vintage Brown: สีน้ำตาลเข้มคลาสสิก */
             --primary-dark: #2F241E;  /* Dark Brown: สีน้ำตาลไหม้ สำหรับโฮเวอร์ปุ่ม */
-            --accent-color: #B85D38;  /* Rust/Burnt Orange: สีส้มอิฐ/ทองแดง สื่อถึงความหวังและแสงสว่าง */
-            --bg-color: #F7F4EB;      /* Warm Parchment: สีครีมกระดาษเก่า สว่างแต่อ่านสบายตา */
+            --accent-color: #B85D38;  /* Rust/Burnt Orange: สีส้มอิฐ/ทองแดง */
+            --bg-color: #F7F4EB;      /* Warm Parchment: สีครีมกระดาษเก่า */
             --bg-section: #EFEAD8;    /* Darker Cream: สีครีมเข้มขึ้นเล็กน้อยสำหรับแบ่งโซน */
             --text-color: #403631;    /* Soft Dark Brown: สีตัวอักษร ลดความแข็งของสีดำสนิท */
         }
@@ -71,7 +71,7 @@
         .hero-image img {
             max-width: 100%;
             border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(74, 58, 49, 0.2); /* เงาอมน้ำตาล */
+            box-shadow: 0 20px 40px rgba(74, 58, 49, 0.2);
         }
 
         .hero-text {
@@ -215,18 +215,21 @@
             letter-spacing: 0.5px;
         }
 
-        /* --- Footer --- */
+        /* --- Footer (ปรับปรุงใหม่) --- */
         footer {
-            background: var(--primary-dark);
-            color: #EFEAD8;
+            /* เปลี่ยนพื้นหลังเป็นสีครีมสว่างเพื่อให้โลโก้สีจริงแสดงผลได้ */
+            background: var(--bg-section);
+            color: var(--text-color);
             text-align: center;
             padding: 60px 5%;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         footer img {
             height: 80px;
             margin-bottom: 20px;
-            filter: brightness(0) invert(1) opacity(0.9);
+            /* เอา CSS Filter ที่ทำให้โลโก้เป็นสีขาวออก */
+            filter: none; 
         }
 
         /* Responsive */
@@ -267,7 +270,7 @@
         <div class="grid-container">
             <div class="card">
                 <i class="fa-solid fa-microphone-lines"></i>
-                <h3>รอบที่ 1: Audition</h3>
+                <h3>รอบที่ 1: คัดเลือกบุคคล</h3>
                 <ul>
                     <li><strong>วันที่:</strong> 2 มิถุนายน</li>
                     <li><strong>เวลา:</strong> 13:00 – 21:00 น.</li>
@@ -291,10 +294,10 @@
                 <i class="fa-solid fa-clipboard-list"></i>
                 <h3>สิ่งที่ต้องเตรียมมา</h3>
                 <ul>
-                    <li>เพลงที่ถนัดที่สุด (Feel in มากที่สุด)</li>
+                    <li>เพลงที่ถนัดที่สุด (เน้น Feel in มากที่สุด)</li>
                     <li>เตรียมนักดนตรี หรือ Backing track มาเอง</li>
                     <li>บท Dialog สั้น ๆ (ทีมงานจะส่งให้ล่วงหน้า)</li>
-                    <li>อาจมีการขอให้อยู่ต่อหลังออดิชั่น</li>
+                    <li>อาจมีการเรียกให้อยู่ต่อหลังออดิชั่น</li>
                 </ul>
             </div>
         </div>
