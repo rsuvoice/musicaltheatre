@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตารางเวลา Audition รอบที่ 1 - เมืองนิมิตร The Musical</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #4A3A31; /* Vintage Brown */
+            --primary-dark: #2F241E;
+            --accent-color: #B85D38;  /* Rust Orange */
+            --bg-color: #F7F4EB;      /* Warm Parchment */
+            --bg-section: #EFEAD8;    /* Darker Cream */
+            --text-color: #403631;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-title h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .header-title p {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        /* --- Alert Box --- */
+        .alert-box {
+            background-color: #FFF3CD;
+            border-left: 5px solid #FFC107;
+            color: #856404;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- Search Bar --- */
+        .search-container {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 1rem;
+            border: 2px solid var(--bg-section);
+            border-radius: 50px;
+            background: white;
+            color: var(--text-color);
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(184, 93, 56, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #A09085;
+            font-size: 1.2rem;
+        }
+
+        /* --- Main Button --- */
+        .btn-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .script-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(184, 93, 56, 0.3);
+        }
+
+        .script-button:hover {
+            background-color: #A24F2E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(184, 93, 56, 0.4);
+        }
+
+        /* --- Tables --- */
+        .table-responsive {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            margin-bottom: 50px;
+        }
+
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .main-table th, .main-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--bg-color);
+        }
+
+        .main-table th {
+            background-color: var(--primary-color);
+            color: #F7F4EB;
+            font-weight: 500;
+        }
+
+        .main-table tr:hover {
+            background-color: #FAF8F5;
+        }
+
+        .break-row {
+            background-color: #F2EFE9 !important;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .time-badge {
+            background-color: rgba(74, 58, 49, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* --- Round 2 Info Cards --- */
+        .round2-section {
+            background-color: var(--bg-section);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+
+        .round2-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            border-bottom: 2px solid rgba(74, 58, 49, 0.2);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .info-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .info-card ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .info-card ul li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .note-box {
+            background-color: rgba(184, 93, 56, 0.08);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 25px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: white;
+            color: var(--text-color);
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: 60px;
+            border-top: 1px solid var(--bg-section);
+        }
+
+        @media (max-width: 600px) {
+            .main-table th, .main-table td { padding: 12px 10px; font-size: 0.9rem; }
+            .header-title h1 { font-size: 1.8rem; }
+            .round2-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="https://drive.google.com/thumbnail?id=12tFTwTEOJbmpNTQUub2ongpgCqry9Bpx&sz=w1000" alt="RSU Logo">
+        </div>
+        <div style="font-weight: 500; color: var(--primary-color);">RSU Musical Theatre</div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="header-title">
+            <h1>ตารางรายชื่อและเวลา Audition รอบที่ 1</h1>
+            <p>เมืองนิมิตร The Musical</p>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-clock-solid fa-triangle-exclamation"></i>
+            <span><strong>หมายเหตุสำคัญ:</strong> กรุณามารายงานตัวและลงทะเบียนก่อนเวลาออดิชั่นของตนเองอย่างน้อย 20 นาที</span>
+        </div>
+
+        <div class="btn-container">
+            <a href="https://drive.google.com/drive/folders/16uHXic60QiLoMXI3Vl1TAFBoLhbF01t0?usp=sharing" target="_blank" class="script-button">
+                <i class="fa-solid fa-file-lines"></i> ดาวน์โหลด Casting Script ที่นี่
+            </a>
+        </div>
+
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="พิมพ์ชื่อ, นามสกุล หรือชื่อเล่น เพื่อค้นหาเวลาออดิชั่นของคุณ..." class="search-input">
+        </div>
+
+        <div class="table-responsive">
+            <table class="main-table" id="auditionTable">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">No.</th>
+                        <th style="width: 50%;">ชื่อ - นามสกุล</th>
+                        <th style="width: 20%;">ชื่อเล่น</th>
+                        <th style="width: 20%;">เวลา Audition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>กรองแก้ว อึ๋งสกุล</td><td>เกล</td><td><span class="time-badge">13:00 – 13:15</span></td></tr>
+                    <tr><td>2</td><td>ทัศนัยภรณ์ โมรีรัตน์</td><td>มัทโซ</td><td><span class="time-badge">13:15 – 13:30</span></td></tr>
+                    <tr><td>3</td><td>ปวริศ สุดคง</td><td>เบสท์</td><td><span class="time-badge">13:30 – 13:45</span></td></tr>
+                    <tr><td>4</td><td>ศิริลักษณ์ สินทรา</td><td>ออมสิน</td><td><span class="time-badge">14:00 – 14:15</span></td></tr>
+                    <tr><td>5</td><td>ชนาภรณ์ ทวีชาติ</td><td>แพร</td><td><span class="time-badge">14:15 – 14:30</span></td></tr>
+                    <tr><td>6</td><td>นงนภัส อริยพงศ์ไพศาล</td><td>แก้ม</td><td><span class="time-badge">14:30 – 14:45</span></td></tr>
+                    <tr><td>7</td><td>ธมลวรรณ พุ่มเจริญ</td><td>เรน</td><td><span class="time-badge">14:45 – 15:00</span></td></tr>
+                    <tr><td>8</td><td>กันต์ธีร์ เลขานนท์</td><td>ดอม</td><td><span class="time-badge">15:00 – 15:15</span></td></tr>
+                    <tr><td>9</td><td>ฐิติวรรณ ภุมวรรณ</td><td>เจน</td><td><span class="time-badge">15:15 – 15:30</span></td></tr>
+                    <tr><td>10</td><td>ภูริเดช สุขเกษม</td><td>ภูริ</td><td><span class="time-badge">15:45 – 16:00</span></td></tr>
+                    <tr><td>11</td><td>พณิชศรา เชาวลิต</td><td>สายไหม</td><td><span class="time-badge">16:00 – 16:15</span></td></tr>
+                    <tr><td>12</td><td>กิตติรักษ์ แสนรักษ์</td><td>ไอซ์</td><td><span class="time-badge">16:30 – 16:45</span></td></tr>
+                    <tr><td>13</td><td>พิมลพัทธ์ บูรณปุณยพร</td><td>แพท</td><td><span class="time-badge">16:45 – 17:00</span></td></tr>
+                    <tr><td>14</td><td>อรนิชา ชุนเจริญ</td><td>เอิน</td><td><span class="time-badge">17:00 – 17:15</span></td></tr>
+                    <tr><td>15</td><td>สาวิตรา สุขสมบูรณ์</td><td>ซาร่า</td><td><span class="time-badge">17:15 – 17:30</span></td></tr>
+                    <tr><td>16</td><td>ศศินันท์ ตันละมัยงาม</td><td>มีมี่</td><td><span class="time-badge">17:30 – 17:45</span></td></tr>
+                    <tr><td>17</td><td>ปวริศา บัวเกิด</td><td>กิ๊บๆ</td><td><span class="time-badge">17:45 – 18:00</span></td></tr>
+                    <tr class="break-row"><td colspan="4">☕ BREAK (พักครึ่งเวลา)</td></tr>
+                    <tr><td>18</td><td>ภานุวัฒน์ จิตบุญชื่น</td><td>ปังปอนด์</td><td><span class="time-badge">18:30 – 18:45</span></td></tr>
+                    <tr><td>19</td><td>ธัญญ์รวี สุริยชัยจิรกิจ</td><td>เวียนนา</td><td><span class="time-badge">18:45 – 19:00</span></td></tr>
+                    <tr><td>20</td><td>ลภัสรดา สุปินตา</td><td>โดนัท</td><td><span class="time-badge">19:00 – 19:15</span></td></tr>
+                    <tr><td>21</td><td>พิทวัส กรสิทธิศักดิ์</td><td>แจ็ค</td><td><span class="time-badge">19:15 – 19:30</span></td></tr>
+                    <tr><td>22</td><td>พานทองแท้ แสงสิทธิ์</td><td>โอม</td><td><span class="time-badge">19:45 – 20:00</span></td></tr>
+                    <tr><td>23</td><td>ปุณพิวัชญ์ วงษ์ขวัญเมือง</td><td>ปุณ</td><td><span class="time-badge">20:15 – 20:30</span></td></tr>
+                    <tr><td>24</td><td>อชพรพรรณ ทุมชะ</td><td>ปอนด์</td><td><span class="time-badge">20:30 – 20:45</span></td></tr>
+                    <tr><td>25</td><td>ดวงกมล ดนตรี</td><td>กาฟิว</td><td><span class="time-badge">20:45 – 21:00</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="round2-section">
+            <h2 class="round2-title"><i class="fa-solid fa-star"></i> รายละเอียดการ Audition รอบที่ 2</h2>
+            
+            <div class="info-card">
+                <h3><i class="fa-solid fa-masks-theater"></i> สิ่งที่ต้องเตรียม</h3>
+                <h4 style="margin: 10px 0 5px 0; color: var(--primary-color);">1. การแคสต์ตัวละคร (Acting Audition)</h4>
+                <ul>
+                    <li>ผู้สมัครสามารถเลือก “ตัวละคร” ที่อยากลองแคสต์ได้ ไม่เกิน 3 บท</li>
+                    <li>ไม่จำเป็นต้องท่องบท สามารถถือสคริปต์อ่านได้ระหว่าง audition</li>
+                    <li>หลังจากทดลองแคสต์ ผู้กำกับอาจให้ลองอ่านหรือลองเล่นบทเพิ่มเติม เพื่อดูความเหมาะสมกับตัวละครอื่น ๆ</li>
+                </ul>
+
+                <h4 style="margin: 20px 0 5px 0; color: var(--primary-color);">2. การร้องเพลง (Vocal Audition)</h4>
+                <ul>
+                    <li>ผู้สมัครทุกคนต้องเตรียมเพลงมาร้องสำหรับการ audition</li>
+                    <li>สามารถเลือกเพลงที่คิดว่าเหมาะกับคาแรกเตอร์ของตัวละครที่ต้องการแสดง</li>
+                    <li>การเลือกเพลงที่เหมาะสมจะช่วยให้ทีมงานเห็นภาพและประเมินการแคสต์ได้ชัดเจนมากขึ้น</li>
+                </ul>
+            </div>
+
+            <div class="note-box">
+                <h3 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 5px;"><i class="fa-solid fa-circle-info"></i> หมายเหตุเกี่ยวกับการคัดเลือก</h3>
+                <p>ตัวละครหลักจะมีจำนวนประมาณ 10 คน สำหรับผู้ที่ไม่ได้รับเลือกเป็นตัวหลัก จะได้เข้าร่วม Workshop และอาจได้รับคัดเลือกเป็น <strong>Ensemble / Featured Ensemble</strong> ซึ่งกลุ่ม Ensemble จะมีบทบาทหลากหลายภายในเรื่อง เช่น ชาวบ้าน ชาวญี่ปุ่น และตัวละครประกอบอื่น ๆ</p>
+            </div>
+
+            <h3 class="round2-title" style="margin-top: 40px; font-size: 1.5rem;"><i class="fa-solid fa-calendar-days"></i> ตารางกิจกรรม – รอบที่ 2</h3>
+            <p style="font-weight: 500; margin-bottom: 15px;"><i class="fa-regular fa-calendar"></i> วันที่ 3 มิถุนายน</p>
+            
+            <div class="table-responsive" style="margin-bottom: 0;">
+                <table class="main-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">เวลา</th>
+                            <th style="width: 70%;">กิจกรรม</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="time-badge">13:00 – 17:00 น.</span></td>
+                            <td>
+                                <strong>Workshop Audition</strong>
+                                <p style="font-size: 0.9rem; color: #605045; margin-top: 5px;">• ฝึกพื้นฐานการแสดง<br>• การทำงานร่วมกัน<br>• การจัดกลุ่มตัวละคร</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="time-badge">17:00 – 18:00 น.</span></td>
+                            <td><strong>ประชุมนักแสดงและทีมงาน</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 RSU Musical Theatre. All Rights Reserved.</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px; font-weight: 300;">วิทยาลัยดนตรี มหาวิทยาลัยรังสิต</p>
+    </footer>
+
+    <script>
+        function searchTable() {
+            var input, filter, table, tr, tdName, tdNickname, i, txtValueName, txtValueNickname;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("auditionTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                // ข้ามแถวที่เป็นแถว BREAK (พักครึ่งเวลา)
+                if (tr[i].classList.contains('break-row')) {
+                    if (filter === "") {
+                        tr[i].style.display = ""; // ถ้าไม่ได้พิมพ์ค้นหา ให้แสดงแถว BREAK ปกติ
+                    } else {
+                        tr[i].style.display = "none"; // ถ้าพิมพ์ค้นหา ให้ซ่อนแถว BREAK ไปก่อน
+                    }
+                    continue;
+                }
+
+                tdName = tr[i].getElementsByTagName("td")[1]; // คอลัมน์ชื่อ
+                tdNickname = tr[i].getElementsByTagName("td")[2]; // คอลัมน์ชื่อเล่น
+                
+                if (tdName || tdNickname) {
+                    txtValueName = tdName.textContent || tdName.innerText;
+                    txtValueNickname = tdNickname.textContent || tdNickname.innerText;
+                    
+                    if (txtValueName.toUpperCase().indexOf(filter) > -1 || txtValueNickname.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
