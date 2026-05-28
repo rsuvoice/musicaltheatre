@@ -147,6 +147,26 @@
             box-shadow: 0 8px 20px rgba(184, 93, 56, 0.4);
         }
 
+        /* ปุ่มดาวน์โหลดขนาดเล็ก (Small Button) */
+        .btn-small {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: all 0.2s ease;
+        }
+
+        .btn-small:hover {
+            background-color: #A24F2E;
+            transform: translateY(-1px);
+        }
+
         /* --- Tables --- */
         .table-responsive {
             background: white;
@@ -269,6 +289,7 @@
             .main-table th, .main-table td { padding: 12px 10px; font-size: 0.9rem; }
             .header-title h1 { font-size: 1.8rem; }
             .round2-section { padding: 20px; }
+            .info-card h4 { flex-direction: column; align-items: flex-start !important; gap: 8px; }
         }
     </style>
 </head>
@@ -350,7 +371,13 @@
             
             <div class="info-card">
                 <h3><i class="fa-solid fa-masks-theater"></i> สิ่งที่ต้องเตรียม</h3>
-                <h4 style="margin: 10px 0 5px 0; color: var(--primary-color);">1. การแคสต์ตัวละคร</h4>
+                
+                <h4 style="margin: 10px 0 10px 0; color: var(--primary-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                    <span>1. การแคสต์ตัวละคร</span>
+                    <a href="https://drive.google.com/drive/folders/16uHXic60QiLoMXI3Vl1TAFBoLhbF01t0?usp=sharing" target="_blank" class="btn-small">
+                        <i class="fa-solid fa-download"></i> ดาวน์โหลด Casting Script
+                    </a>
+                </h4>
                 <ul>
                     <li>ผู้สมัครสามารถเลือก “ตัวละคร” ที่อยากลองแคสต์ได้ ไม่เกิน 3 บท</li>
                     <li>ไม่จำเป็นต้องท่องบท สามารถถือสคริปต์อ่านได้ระหว่าง audition</li>
@@ -416,18 +443,17 @@
             tr = table.getElementsByTagName("tr");
 
             for (i = 1; i < tr.length; i++) {
-                // ข้ามแถวที่เป็นแถว BREAK (พักครึ่งเวลา)
                 if (tr[i].classList.contains('break-row')) {
                     if (filter === "") {
-                        tr[i].style.display = ""; // ถ้าไม่ได้พิมพ์ค้นหา ให้แสดงแถว BREAK ปกติ
+                        tr[i].style.display = ""; 
                     } else {
-                        tr[i].style.display = "none"; // ถ้าพิมพ์ค้นหา ให้ซ่อนแถว BREAK ไปก่อน
+                        tr[i].style.display = "none"; 
                     }
                     continue;
                 }
 
-                tdName = tr[i].getElementsByTagName("td")[1]; // คอลัมน์ชื่อ
-                tdNickname = tr[i].getElementsByTagName("td")[2]; // คอลัมน์ชื่อเล่น
+                tdName = tr[i].getElementsByTagName("td")[1]; 
+                tdNickname = tr[i].getElementsByTagName("td")[2]; 
                 
                 if (tdName || tdNickname) {
                     txtValueName = tdName.textContent || tdName.innerText;
