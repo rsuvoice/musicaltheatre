@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประกาศผลการ Audition - เมืองนิมิตร The Musical</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #4A3A31; /* Vintage Brown */
+            --primary-dark: #2F241E;
+            --accent-color: #B85D38;  /* Rust Orange */
+            --bg-color: #F7F4EB;      /* Warm Parchment */
+            --bg-section: #EFEAD8;    /* Darker Cream */
+            --text-color: #403631;
+            --success-color: #2E7D32; /* Soft Victory Green */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header-title h1 {
+            font-size: 2.3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header-title p {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+
+        /* --- Congratulation Box --- */
+        .congrat-box {
+            background-color: #E8F5E9;
+            border-left: 5px solid var(--success-color);
+            color: #1B5E20;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.05);
+        }
+        
+        .congrat-box h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- Search Bar --- */
+        .search-container {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 1rem;
+            border: 2px solid var(--bg-section);
+            border-radius: 50px;
+            background: white;
+            color: var(--text-color);
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(184, 93, 56, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #A09085;
+            font-size: 1.2rem;
+        }
+
+        /* --- Results Table --- */
+        .table-responsive {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            margin-bottom: 40px;
+        }
+
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .main-table th, .main-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #F4F1EA;
+        }
+
+        .main-table th {
+            background-color: var(--primary-color);
+            color: #F7F4EB;
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        .main-table tr:hover {
+            background-color: #FAF8F5;
+        }
+
+        /* --- Badges --- */
+        .role-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            background-color: #F5F0EA;
+            color: var(--primary-color);
+            border: 1px solid rgba(74, 58, 49, 0.15);
+        }
+
+        .role-badge.ensemble {
+            background-color: rgba(184, 93, 56, 0.08);
+            color: var(--accent-color);
+            border: 1px solid rgba(184, 93, 56, 0.2);
+        }
+
+        .role-badge.lead {
+            background-color: rgba(74, 58, 49, 0.08);
+            color: var(--primary-color);
+            font-weight: 600;
+            border: 1px solid rgba(74, 58, 49, 0.3);
+        }
+
+        /* --- Next Steps Info --- */
+        .next-steps {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+            border: 1px solid var(--bg-section);
+        }
+
+        .next-steps h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--bg-section);
+            padding-bottom: 8px;
+        }
+
+        .next-steps ul {
+            list-style: none;
+        }
+
+        .next-steps ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .next-steps ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: white;
+            color: var(--text-color);
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: 60px;
+            border-top: 1px solid var(--bg-section);
+        }
+
+        @media (max-width: 600px) {
+            .main-table th, .main-table td { padding: 14px 12px; font-size: 0.95rem; }
+            .header-title h1 { font-size: 1.8rem; }
+            .role-badge { font-size: 0.85rem; padding: 3px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="https://drive.google.com/thumbnail?id=12tFTwTEOJbmpNTQUub2ongpgCqry9Bpx&sz=w1000" alt="RSU Logo">
+        </div>
+        <div style="font-weight: 500; color: var(--primary-color);">RSU Musical Theatre</div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="header-title">
+            <h1>ประกาศผลการคัดเลือกนักแสดง</h1>
+            <p>เมืองนิมิตร The Musical</p>
+        </div>
+
+        <div class="congrat-box">
+            <h3><i class="fa-solid fa-trophy"></i> ขอแสดงความยินดีกับนักแสดงทุกท่าน!</h3>
+            <p>ทีมงานขอขอบคุณความตั้งใจและความทุ่มเทของผู้เข้าคัดเลือกทุกคนในรอบที่ผ่านมา</p>
+        </div>
+
+        <!-- ช่องค้นหาอัจฉริยะ -->
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="resultSearch" onkeyup="filterResults()" placeholder="พิมพ์ชื่อเล่น หรือ บทบาท (เช่น ผกา, Ensemble) เพื่อค้นหา..." class="search-input">
+        </div>
+
+        <!-- ตารางแสดงผลประกาศ -->
+        <div class="table-responsive">
+            <table class="main-table" id="resultsTable">
+                <thead>
+                    <tr>
+                        <th style="width: 15%; text-align: center;">ลำดับ</th>
+                        <th style="width: 40%;">นักแสดง (ชื่อเล่น)</th>
+                        <th style="width: 45%;">บทบาทที่ได้รับ (Role)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="text-align: center; font-weight: bold;">1</td><td>กิ๊บๆ</td><td><span class="role-badge lead">ผกา (double)</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">2</td><td>เบสท์</td><td><span class="role-badge lead">ดิเรก</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">3</td><td>ออมสิน</td><td><span class="role-badge ensemble">Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">4</td><td>แพร</td><td><span class="role-badge lead">รัญจวน</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">5</td><td>แก้ม</td><td><span class="role-badge lead">รัมภา</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">6</td><td>เรน</td><td><span class="role-badge ensemble">Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">7</td><td>เจน</td><td><span class="role-badge ensemble">Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">8</td><td>สายไหม</td><td><span class="role-badge lead">ยายพริ้ม</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">9</td><td>ไอซ์</td><td><span class="role-badge lead">รังสิต</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">10</td><td>แพท</td><td><span class="role-badge ensemble">Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">11</td><td>เอิน</td><td><span class="role-badge lead">ทิพย์สุดา</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">12</td><td>ซาร่า</td><td><span class="role-badge ensemble">Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">13</td><td>ปังปอนด์</td><td><span class="role-badge ensemble">Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">14</td><td>แจ็ค</td><td><span class="role-badge lead">ไก่ฟ้า (เสรีไทย ฝ่ายเจ้า)</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">15</td><td>แฟรงค์</td><td><span class="role-badge ensemble">Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">16</td><td>โอม</td><td><span class="role-badge lead">ผู้ใหญ่บ้าน + Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">17</td><td>ปอนด์</td><td><span class="role-badge lead">ป้าหวัง (ลุงหวัง)</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">18</td><td>กาฟิว</td><td><span class="role-badge lead">เมียดูโซะ + Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">19</td><td>พลอย</td><td><span class="role-badge lead">ผกา (double) + Ensemble</span></td></tr>
+                    <tr><td style="text-align: center; font-weight: bold;">20</td><td>ไกด์</td><td><span class="role-badge lead">ดูโซะ</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- รายละเอียดขั้นตอนต่อไป -->
+        <div class="next-steps">
+            <h3><i class="fa-solid fa-calendar-check"></i> ขั้นตอนต่อไปสำหรับนักแสดง</h3>
+            <ul>
+                <li>ให้นักแสดงที่มีรายชื่อทุกคนรายงานตัวผ่านกลุ่ม Line / ทีมงานละครเวที</li>
+                <li>เตรียมตัวเข้าร่วมการนัดหมายอ่านบท (Script Reading) ครั้งแรกตามวันเวลาที่ทีมงานกำหนด</li>
+                <li>ศึกษาคาแรกเตอร์และภาพรวมของบทบาทที่ตนเองได้รับล่วงหน้า</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 RSU Musical Theatre. All Rights Reserved.</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px; font-weight: 300;">วิทยาลัยดนตรี มหาวิทยาลัยรังสิต</p>
+    </footer>
+
+    <script>
+        function filterResults() {
+            var input, filter, table, tr, tdName, tdRole, i, txtValueName, txtValueRole;
+            input = document.getElementById("resultSearch");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("resultsTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                tdName = tr[i].getElementsByTagName("td")[1]; // คอลัมน์ชื่อเล่น
+                tdRole = tr[i].getElementsByTagName("td")[2]; // คอลัมน์บทบาท
+                
+                if (tdName || tdRole) {
+                    txtValueName = tdName.textContent || tdName.innerText;
+                    txtValueRole = tdRole.textContent || tdRole.innerText;
+                    
+                    // ค้นหาพร้อมกันทั้งชื่อเล่นและบทบาท
+                    if (txtValueName.toUpperCase().indexOf(filter) > -1 || txtValueRole.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
