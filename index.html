@@ -77,8 +77,8 @@
         .hero-text {
             flex: 1;
             min-width: 350px;
-            position: relative; /* ป้องกันกล่องอื่นทับปุ่ม */
-            z-index: 10;        /* ป้องกันกล่องอื่นทับปุ่ม */
+            position: relative; 
+            z-index: 10;        
         }
 
         .hero-text h1 {
@@ -118,26 +118,16 @@
             box-shadow: 0 12px 20px rgba(74, 58, 49, 0.25);
         }
 
-        .cta-outline {
-            background-color: transparent;
-            color: var(--primary-color);
-            box-shadow: none;
-        }
-
-        .cta-outline:hover {
-            background-color: var(--primary-color);
-            color: #F7F4EB;
-        }
-
         /* ปุ่มประกาศผลแบบพิเศษ (สีส้มอิฐ) */
         .btn-result {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-        }
-        .btn-result:hover {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
             color: white;
+        }
+        
+        .btn-result:hover {
+            background-color: #9A4D2E;
+            border-color: #9A4D2E;
         }
 
         .btn-group {
@@ -266,10 +256,7 @@
         <div class="logo">
             <img src="https://drive.google.com/thumbnail?id=12tFTwTEOJbmpNTQUub2ongpgCqry9Bpx&sz=w1000" alt="RSU Logo">
         </div>
-        <div style="display: flex; gap: 10px;">
-            <a href="schedule.html" class="cta-button cta-outline" style="padding: 8px 25px; font-size: 1rem; margin: 0;">ตารางเวลา Audition</a>
-        </div>
-    </nav>
+        </nav>
 
     <section class="hero">
         <div class="hero-image">
@@ -279,16 +266,9 @@
             <h2>RSU Musical Theatre</h2>
             <h1>เมืองนิมิตร<br>The Musical</h1>
             <p style="font-size: 1.2rem; margin-bottom: 30px; font-weight: 300;">"เมื่อสงครามพรากทุกสิ่ง ความรักและความหวังจะรวมเราไว้เป็นหนึ่ง"</p>
-            <p>เปิดรับสมัคร Audition นักแสดงและนักร้อง</p>
             
             <div class="btn-group">
-                <a href="https://forms.gle/yEwkcn457PeGCuEp6" class="cta-button" target="_blank">สมัคร Audition</a>
-                <a href="schedule.html" class="cta-button cta-outline">ดูรายชื่อและตารางเวลา</a>
-            </div>
-
-            <!-- จุดที่ 1: เหลือเพียงปุ่มประกาศผลออดิชั่น ปุ่มเดียวเชื่อมไปหน้าผลลัพธ์ -->
-            <div class="btn-group" style="margin-top: 12px;">
-                <a href="audition-results.html" class="cta-button cta-outline btn-result" style="padding: 12px 25px; font-size: 1rem;"><i class="fa-solid fa-bullhorn"></i> ประกาศผลออดิชั่น</a>
+                <a href="audition-results.html" class="cta-button btn-result"><i class="fa-solid fa-bullhorn"></i> ประกาศผลออดิชั่น</a>
             </div>
 
         </div>
@@ -361,15 +341,9 @@
         
         <div style="margin-top: 50px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
             <p style="font-size: 1.2rem; color: var(--primary-color); margin: 0;">"เมืองนิมิตร"</p>
-            
-            <div class="btn-group" style="justify-content: center;">
-                <a href="https://forms.gle/yEwkcn457PeGCuEp6" class="cta-button" style="background-color: var(--accent-color); border-color: var(--accent-color); color: white;" target="_blank">สมัคร Audition</a>
-                <a href="schedule.html" class="cta-button cta-outline">ตรวจสอบรายชื่อและเวลา</a>
-            </div>
 
-            <!-- จุดที่ 2: โซนด้านล่าง เหลือปุ่มประกาศผลออดิชั่น ปุ่มเดียวเช่นกัน -->
             <div class="btn-group" style="justify-content: center; margin-top: 0;">
-                <a href="audition-results.html" class="cta-button cta-outline btn-result" style="padding: 12px 25px; font-size: 1rem;"><i class="fa-solid fa-bullhorn"></i> ประกาศผลออดิชั่น</a>
+                <a href="audition-results.html" class="cta-button btn-result"><i class="fa-solid fa-bullhorn"></i> ประกาศผลออดิชั่น</a>
             </div>
         </div>
     </section>
